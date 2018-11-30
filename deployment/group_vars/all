@@ -5,3 +5,16 @@ app_user: "{{ ansible_env.USER }}"
 user_dir: "{{ ansible_env.HOME }}"
 src_dir: "{{ user_dir }}/src/git"
 app_dir: "{{ src_dir }}/{{ repo_name }}"
+
+
+pip_command_pip: pip
+pip_command_python: python
+pip_download_filename: get-pip.py
+pip_download_url: "https://bootstrap.pypa.io/{{ pip_download_filename }}"
+pip_download_dest: /tmp
+
+
+nvm_download_filename: install.sh
+nvm_download_url: "https://raw.githubusercontent.com/creationix/nvm/v0.33.11/{{ nvm_download_filename }}"
+nvm_node_version: v0.10.44
+

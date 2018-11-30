@@ -1,0 +1,16 @@
+#first seen here: http://www.snip2code.com/Snippet/63701/Ansible-task-to-install-nvm-and-node
+# then seen at: https://gist.github.com/komuw/b3b5d24977d4df7bd549
+# Here is how to install nvm and node in an Ansible task.
+# I tried a bunch of different things, and as usual it's simple, but you have to get it right.
+# The important part is that you have to shell with /bin/bash -c and source nvm.sh
+---
+- name: Install nvm
+  shell: >
+    curl "{{ nvm_download_url }}/{{ nvm_download_filename }} | sh"
+    creates={{ user_dir }}/.nvm/nvm.sh
+  become: "yes"
+
+- name: Install node and set version
+  shell: >
+    /bin/bash -c "source ~/.nvm/nvm.sh && nvm install {{ nvm_node_version }} && nvm alias default {{ nvm_node_version }}" 
+    creates={{ user_dir }}/.nvm/alias

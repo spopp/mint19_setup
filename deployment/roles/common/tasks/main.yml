@@ -1,2 +1,6 @@
 ---
+
+- include: "get_pip.yml"
 - include: "apt.yml"
+- include: "get_nvm.yml"
+- include: "get_docker.yml"

@@ -1,0 +1,17 @@
+#first seen at https://github.com/darkraiden/ansible-role-pip
+# bootstrap installs python pip - the latest version
+
+---
+- name: Bootstrap pip
+  get_url:
+    url: "{{ pip_download_url }}"
+    dest: "{{ pip_download_dest }}"
+
+- name: Install pip
+  command: "{{ pip_command_python }} {{ pip_download_dest }}/{{ pip_download_filename }}"
+  become: "yes"
+
+- name: Delete downloaded file
+  file:
+    path: "{{ pip_download_dest }}/{{ pip_download_filename }}"
+    state: absent
