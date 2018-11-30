@@ -1,0 +1,7 @@
+---
+repo_name: "mint19_setup"
+
+app_user: "{{ ansible_env.USER }}"
+user_dir: "{{ ansible_env.HOME }}"
+src_dir: "{{ user_dir }}/src/git"
+app_dir: "{{ src_dir }}/{{ repo_name }}"

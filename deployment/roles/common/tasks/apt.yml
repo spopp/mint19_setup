@@ -1,0 +1,25 @@
+---
+- name: "Install stand apt packages"
+  apt:
+    name: "{{ item }}"
+    update_cache: false
+    state: present
+  with_items:
+    - 'git'
+    - 'build-essential'
+    - 'python-software-properties'
+    - 'python-dev'
+    - 'virtualbox'
+    - 'chromium-browser'
+    - 'geany'
+    - 'geany-plugins'
+    - 'sublime-text'
+    - 'slack'
+    - 'postgresql'
+    - 'pgadmin3'
+    - 'terminator'
+    - 'vim'
+    - 'dropbox'
+    - 'keepass2'
+  become: "yes"
+  register: echo

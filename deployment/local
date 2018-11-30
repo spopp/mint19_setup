@@ -1,0 +1,10 @@
+# Inventory file for a local install
+# Usage: ansible-playbook -i local -K site.yml
+
+
+[workstation-servers:children]
+local-workstation
+
+
+[local-workstation]
+my-workstation  ansible_host=localhost ansible_connection=local
