@@ -1,5 +1,5 @@
 #first seen at https://github.com/darkraiden/ansible-role-pip
-# bootstrap installs python pip - the latest version
+# bootstrap installs python2 pip - the latest version
 
 ---
 - name: Bootstrap pip
@@ -7,7 +7,7 @@
     url: "{{ pip_download_url }}"
     dest: "{{ pip_download_dest }}"
 
-- name: Install pip
+- name: Install pip for python2
   command: "{{ pip_command_python }} {{ pip_download_dest }}/{{ pip_download_filename }}"
   become: "yes"
 
@@ -15,3 +15,13 @@
   file:
     path: "{{ pip_download_dest }}/{{ pip_download_filename }}"
     state: absent
+
+- name: Add pip3 standin to Mint
+  copy:
+    src: files/pip3
+    dest: /usr/local/bin
+    owner: root
+    group: root
+    mode: u=rwx,g=xr,o=xr
+    state: present
+  become: "yes"

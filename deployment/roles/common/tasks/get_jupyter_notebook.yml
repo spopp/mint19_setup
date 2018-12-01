@@ -1,0 +1,17 @@
+# Jupyter Notebook and standard science and math packages
+# This is not running on Mint 1
+
+---
+- name: Install Jupyter Notebook for Python3
+  pip:
+    executable: pip3
+    requirements: files/jupyter_requirements.txt
+  become: "yes"
+
+- name: Install jupyter-core
+  apt:
+    name: jupyter-core
+    update_cache: false
+    state: present
+
+

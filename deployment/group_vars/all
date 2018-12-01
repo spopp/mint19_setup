@@ -9,6 +9,7 @@ app_dir: "{{ src_dir }}/{{ repo_name }}"
 
 pip_command_pip: pip
 pip_command_python: python
+pip_command_python3: python3
 pip_download_filename: get-pip.py
 pip_download_url: "https://bootstrap.pypa.io/{{ pip_download_filename }}"
 pip_download_dest: /tmp

@@ -3,3 +3,42 @@
 *.pyc
 *Template.py
 *~
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# App Logs
+*.log*
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+cover/
+.cache/
+
+# Translations
+*.mo
+
+# Developer
+.project
+.pydevproject
+
+# Virtual Environment
+/venv
+.env/
