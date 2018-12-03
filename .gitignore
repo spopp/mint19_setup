@@ -42,3 +42,7 @@ cover/
 # Virtual Environment
 /venv
 .env/
+
+# Ansible files
+deployment/*.retry
+

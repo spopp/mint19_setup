@@ -7,4 +7,4 @@ local-workstation
 
 
 [local-workstation]
-my-workstation  ansible_host=localhost ansible_connection=local
+workstation  ansible_host=localhost ansible_connection=local

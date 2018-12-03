@@ -11,17 +11,11 @@
   command: "{{ pip_command_python }} {{ pip_download_dest }}/{{ pip_download_filename }}"
   become: "yes"
 
+- name: Install pip for python3
+  command: "{{ pip_command_python3 }} {{ pip_download_dest }}/{{ pip_download_filename }}"
+  become: "yes"
+
 - name: Delete downloaded file
   file:
     path: "{{ pip_download_dest }}/{{ pip_download_filename }}"
     state: absent
-
-- name: Add pip3 standin to Mint
-  copy:
-    src: files/pip3
-    dest: /usr/local/bin
-    owner: root
-    group: root
-    mode: u=rwx,g=xr,o=xr
-    state: present
-  become: "yes"

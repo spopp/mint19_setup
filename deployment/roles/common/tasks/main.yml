@@ -5,3 +5,5 @@
 - include: "get_jupyter_notebook.yml"
 - include: "get_nvm.yml"
 - include: "get_docker.yml"
+- include: "pip_install.yml"
+- include: "get_atom.yml"

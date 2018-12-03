@@ -1,0 +1,10 @@
+---
+- name: Download atom for Debian
+  get_url: url={{ atom_download_url }} dest={{atom_tmp_deb}}
+  tags: ["packages","atom"]
+  become: "yes"
+
+- name: Install atom for Debian
+  apt: deb={{atom_tmp_deb}}
+  tags: ["packages","atom"]
+  become: "yes"

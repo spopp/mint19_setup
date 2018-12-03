@@ -1,3 +1,10 @@
+# Debian installs
+# 'freetds-dev' for pip install of mssql
+#
+# I may also need:
+# 'libaio1',
+# 'nfs-common',
+
 ---
 - name: "Install stand apt packages"
   apt:
@@ -7,20 +14,36 @@
   with_items:
     - 'git'
     - 'build-essential'
-    - 'libpq-dev'
     - 'python-software-properties'
     - 'python-dev'
+    - 'python-pip'
     - 'virtualbox'
     - 'chromium-browser'
     - 'geany'
     - 'geany-plugins'
     - 'sublime-text'
-    - 'slack'
     - 'postgresql'
     - 'pgadmin3'
     - 'terminator'
     - 'vim'
     - 'dropbox'
     - 'keepass2'
+    - 'timeshift'
+    - 'dnsutils'
+    - 'network-manager-openconnect-gnome'
+    - 'gconf2'
+    - 'gconf-service'
+    - 'libpq-dev'
+    - 'libxslt1-dev'
+    - 'libxml2-dev'
+    - 'libgtk2.0-0'
+    - 'libudev1'
+    - 'libgcrypt20'
+    - 'libnotify4'
+    - 'libxtst6'
+    - 'libnss3'
+    - 'libcap2'
+    - 'gvfs-bin'
+    - 'xdg-utils'
   become: "yes"
   register: echo
