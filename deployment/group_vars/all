@@ -5,7 +5,7 @@ app_user: "{{ ansible_env.USER }}"
 user_dir: "{{ ansible_env.HOME }}"
 src_dir: "{{ user_dir }}/src/git"
 app_dir: "{{ src_dir }}/{{ repo_name }}"
-
+bin_dir: "{{ user_dir }}/bin"
 
 pip_command_pip: pip
 pip_command_python: python
@@ -21,3 +21,8 @@ nvm_node_version: v0.10.44
 
 atom_download_url: "https://atom.io/download/deb"
 atom_tmp_deb: "/tmp/atom.deb"
+
+androidstudio_filename: android-studio-ide-181.5056338-linux.zip
+androidstudio_download_url: "https://dl.google.com/dl/android/studio/ide-zips/3.2.1.0"
+androidstudio_dest: "{{ bin_dir }}/{{ androidstudio_filename }}"
+android_studio_install_dir: "{{ bin_dir }}/android-studio"

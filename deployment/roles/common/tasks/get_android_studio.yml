@@ -1,0 +1,32 @@
+---
+- name: Create directory
+  file:
+    path: "{{ bin_dir }}"
+    state: directory
+
+- stat: "path={{ android_studio_install_dir }}"
+  register: "check_asdir"
+
+- name: Download Androidstudio
+  get_url: "url={{ androidstudio_download_url }}/{{ androidstudio_filename }} dest={{ androidstudio_dest }}"
+  state: present
+  when: "check_asdir.stat.exists == False"
+
+- name: Extract Androidstudio
+  unarchive:
+    src: "{{ androidstudio_dest }}"
+    dest: "{{ bin_dir }}"
+  when: "check_asdir.stat.exists == False"
+
+- name: Delete downloaded file
+  file:
+    path: "{{ androidstudio_dest }}"
+    state: absent
+  when: "check_asdir.stat.exists == False"
+
+- name: Create androidstudio sym link
+  file:
+    src: "{{ android_studio_install_dir }}/bin/studio.sh"
+    dest: "{{ bin_dir }}/ansiblestudio"
+    state: link
+  when: "check_asdir.stat.exists == False"
