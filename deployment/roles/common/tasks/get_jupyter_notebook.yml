@@ -2,10 +2,10 @@
 # This is not running on Mint 1
 
 ---
-- debug: var=ansible_facts
+# - debug: var=ansible_facts
 
 - name: Install Jupyter Notebook for Python3
   pip:
     executable: pip3
-    requirements: "{{ ansible_env.OLDPWD }}/deployment/roles/common/files/jupyter_requirements.txt"
+    requirements: "{{ app_dir }}/deployment/roles/common/files/jupyter_requirements.txt"
   become: "yes"

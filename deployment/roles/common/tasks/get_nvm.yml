@@ -4,11 +4,22 @@
 # I tried a bunch of different things, and as usual it's simple, but you have to get it right.
 # The important part is that you have to shell with /bin/bash -c and source nvm.sh
 ---
-- name: Install nvm
-  shell: >
-    curl "{{ nvm_download_url }}/{{ nvm_download_filename }} | sh"
-    creates={{ user_dir }}/.nvm/nvm.sh
-  become: "yes"
+
+
+
+- stat: "path={{ user_dir }}/.nvm/nvm.sh"
+  register: "check_nvmdir"
+
+- name: Download for the nvm install
+  get_url:
+    mode: "u+rwx"
+    url: "{{ nvm_download_url }}"
+    dest: "/tmp/{{ nvm_download_filename }}"
+  when: "check_nvmdir.stat.exists == False"
+
+- name: Install node version manager
+  command: "/tmp/{{ nvm_download_filename }}"
+  when: "check_nvmdir.stat.exists == False"
 
 - name: Install node and set version
   shell: >

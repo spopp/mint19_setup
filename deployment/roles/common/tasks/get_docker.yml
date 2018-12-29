@@ -10,5 +10,5 @@
   become: "yes"
 
 - name:  "Install Docker"
-  apt:  name=docker-ce
+  apt:  name=docker-ce allow_unauthenticated=yes
   become: "yes"

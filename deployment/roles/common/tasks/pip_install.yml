@@ -1,20 +1,15 @@
 ---
 - name: "Install standard python 2 packages"
   pip:
-    name: "{{ item }}"
+    name: ['virtualenv']
     state: present
-  with_items:
-    - virtualenv
   become: "yes"
   register: echo
 
 - name: "Install standard python 3 packages"
   pip:
     executable: pip3
-    name: "{{ item }}"
+    name: ['pep8', 'pylint']
     state: present
-  with_items:
-    - pep8
-    - pylint
   become: "yes"
   register: echo
