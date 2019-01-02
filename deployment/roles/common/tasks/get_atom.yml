@@ -1,10 +1,16 @@
 ---
+
+- stat: "path={{ atom_installed_file }}"
+  register: "check_atom_file"
+
 - name: Download atom for Debian
   get_url: url={{ atom_download_url }} dest={{atom_tmp_deb}}
   tags: ["packages","atom"]
+  when: "check_atom_file.stat.exists == False"
   become: "yes"
 
 - name: Install atom for Debian
   apt: deb={{atom_tmp_deb}}
   tags: ["packages","atom"]
+  when: "check_atom_file.stat.exists == False"
   become: "yes"
