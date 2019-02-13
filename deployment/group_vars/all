@@ -26,3 +26,7 @@ androidstudio_filename: android-studio-ide-181.5056338-linux.zip
 androidstudio_download_url: "https://dl.google.com/dl/android/studio/ide-zips/3.2.1.0"
 androidstudio_dest: "{{ bin_dir }}/{{ androidstudio_filename }}"
 android_studio_install_dir: "{{ bin_dir }}/android-studio"
+
+code_download_url: https://go.microsoft.com/fwlink/?LinkID=760868
+code_tmp_deb: /tmp/code.deb
+code_installed_file: /usr/bin/code
