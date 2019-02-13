@@ -21,6 +21,23 @@ To avoid this problem
 3) do not use the resolvconf services but the dnsmasq service instead
 
 
+### Disable the systemd-resolv service	
+```	
+systemctl stop --now systemd-resolved.service	
+systemctl disable --now systemd-resolved.service
+
+
+# Prevent infinite loop with NetworkManager.dns and resolvconf
+# file: /etc/resolv.conf - prevent over-writes by NetworkManager
+
+sudo mv /etc/resolv.conf /etc/resolv.conf.orig
+sudo touch /etc/resolv.conf
+sudo chattr -i /etc/resolv.conf
+```
+
+
+
+
 ### in /etc/nsswitch.conf
 
 mdns4_minimal and dns swap places leaving dns first
@@ -47,7 +64,7 @@ Eliminate the use of resolv.conf
 - uncomment: domain-needed - to always send the requested domain
 - uncomment: bogus-priv    - to prevent non-routed address queries
 - uncomment: log-queries   - to view queries in /var/log/system
-- uncomment: bogus-nxdomain=64.94.110.11 - to preveint wildcard A records from this ip
+
 - uncomment and edit: resolv-file=/etc/my-resolv.conf
 - Place your dns entries at end of dnsmasq.conf
 
