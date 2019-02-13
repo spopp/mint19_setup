@@ -7,3 +7,5 @@
 - include: "get_docker.yml"
 - include: "get_atom.yml"
 - include: "get_android_studio.yml"
+- include: "get_ms_code.yml"
+- include: "system.yml"

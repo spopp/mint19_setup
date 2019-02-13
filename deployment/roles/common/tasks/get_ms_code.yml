@@ -1,0 +1,15 @@
+---
+
+- stat: "path={{ code_installed_file }}"
+  register: "check_code_file"
+
+- name: MS Code for Debian Download
+  get_url: url={{ code_download_url }} dest={{code_tmp_deb}}
+  tags: ["packages","code"]
+  when: "check_code_file.stat.exists == False"
+
+- name: MS Code for Debian install
+  apt: deb={{code_tmp_deb}}
+  tags: ["packages","code"]
+  when: "check_code_file.stat.exists == False"
+  become: "yes"

@@ -1,0 +1,8 @@
+---
+- name: "System file watchers"
+  blockinfile:
+    path: /etc/sysctl.conf
+    block: |
+      # Increase file watches from default 8192 (Max is 524288)
+      fs.inotify.max_user_watches=24288
+  become: "yes"
