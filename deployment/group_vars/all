@@ -22,7 +22,7 @@ atom_download_url: "https://atom.io/download/deb"
 atom_tmp_deb: "/tmp/atom.deb"
 atom_installed_file: "/usr/bin/atom"
 
-androidstudio_filename: android-studio-ide-181.5056338-linux.zip
+androidstudio_filename: android-studio-ide-182.5314842-linux.zip
 androidstudio_download_url: "https://dl.google.com/dl/android/studio/ide-zips/3.2.1.0"
 androidstudio_dest: "{{ bin_dir }}/{{ androidstudio_filename }}"
 android_studio_install_dir: "{{ bin_dir }}/android-studio"

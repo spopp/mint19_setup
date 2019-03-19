@@ -5,17 +5,18 @@
 # 'nfs-common',
 
 ---
-- name: "Install stand apt packages"
+- name: "Install standard apt packages"
   apt:
     name: ['build-essential', 'chromium-browser', 'dnsutils', 'dropbox',
            'gconf2', 'gconf-service','git', 'geany', 'geany-plugins',
            'gvfs-bin', 'keepass2',
            'libpq-dev', 'libxslt1-dev', 'libxml2-dev',
            'libgtk2.0-0', 'libudev1', 'libgcrypt20', 'libnotify4',
-           'libxtst6', 'libnss3', 'libcap2', 
-           'libfontconfig1', 'mesa-common-dev', 'libglu1-mesa-dev', 'qtcreator',
+           'libxtst6', 'libnss3', 'libcap2',
+           'libc6:i386', 'libncurses5:i386', 'libstdc++6:i386', 'lib32z1', 'libbz2-1.0:i386',
+           'libfontconfig1', 'mesa-common-dev', 'libglu1-mesa-dev',
            'postgresql', 'pgadmin3', 'python-software-properties',
-           'python-dev', 'python3-dev', 'python-pip',  
+           'python-dev', 'python3-dev', 'python-pip',
            'sublime-text', 'terminator', 'timeshift',
            'network-manager-openconnect-gnome',
            'vim', 'virtualbox', 'xdg-utils']
